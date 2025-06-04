@@ -12,11 +12,11 @@ jobs:
         with:
           node-version: '22.x'
       - name: Instalar dependencias
+        working-directory: ./calculadora
         run: |
-          cd calculadora
           npm install
       - name: Compilar
+        working-directory: ./calculadora
         run: |
-          cd calculadora
           npm run build
  
