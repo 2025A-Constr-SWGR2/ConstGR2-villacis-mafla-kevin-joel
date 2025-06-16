@@ -1,5 +1,5 @@
 name: build-Proyecto IB
-run-name: Build nodejs app
+run-name: Build-pIB
 on: [push]
 jobs:
   build:
