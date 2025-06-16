@@ -3,7 +3,7 @@ run-name: Build nodejs app
 on: [push]
 jobs:
   build:
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     steps:
       - name: Descargar el repo
         uses: actions/checkout@v4
