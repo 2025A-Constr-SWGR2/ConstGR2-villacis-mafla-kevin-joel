@@ -1,4 +1,4 @@
-name: Node build
+name: build-Proyecto IB
 run-name: Build nodejs app
 on: [push]
 jobs:
