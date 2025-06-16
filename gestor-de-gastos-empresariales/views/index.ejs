@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control de Gastos - Empresa</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 Sistema de Control de Gastos</h1>
+            <p>Gestión inteligente de gastos empresariales</p>
+        </div>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2><span class="icon">➕</span> Registrar Nuevo Gasto</h2>
+                <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="description">Descripción del Gasto</label>
+                        <input type="text" id="description" required placeholder="Ej: Compra de material de oficina">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Monto ($)</label>
+                        <input type="number" id="amount" step="0.01" required placeholder="0.00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Categoría</label>
+                        <select id="category" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="Oficina">Material de Oficina</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Alimentación">Alimentación</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Tecnología">Tecnología</option>
+                            <option value="Servicios">Servicios Públicos</option>
+                            <option value="Personal">Gastos de Personal</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Fecha</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notas (Opcional)</label>
+                        <textarea id="notes" rows="3" placeholder="Información adicional sobre el gasto"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Registrar Gasto</button>
+                </form>
+            </div>
+
+            <div class="summary-section">
+                <h2><span class="icon">📊</span> Resumen Financiero</h2>
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <h3>Total Gastos</h3>
+                        <div class="amount" id="totalAmount">$0.00</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Este Mes</h3>
+                        <div class="amount" id="monthAmount">$0.00</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Categoría Top</h3>
+                        <div class="amount" id="topCategory">N/A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="expenses-list">
+            <h2>📋 Historial de Gastos</h2>
+            <div id="expensesList">
+                <div class="no-expenses">
+                    No hay gastos registrados. ¡Comienza agregando tu primer gasto!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
