@@ -1,7 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-const { JSDOM } = require('jsdom');
+import { JSDOM } from 'jsdom';
+// Ajusta la ruta y asegúrate de que script.js exporte ExpenseManager como ES Module
+import { ExpenseManager } from '../Public/script.js';
 
 // Simula el HTML mínimo necesario
 const html = `
@@ -21,16 +23,22 @@ const html = `
   <select id="monthFilter"></select>
 `;
 
-describe('ExpenseManager', () => {
-  let ExpenseManager;
+interface Expense {
+  description: string;
+  amount: number;
+  category: string;
+  date: string;
+  notes: string;
+}
 
+describe('ExpenseManager', () => {
   beforeAll(() => {
     // Simula el DOM
     const dom = new JSDOM(html, { url: "http://localhost" });
+    // @ts-ignore
     global.document = dom.window.document;
+    // @ts-ignore
     global.window = dom.window;
-    // Importa la clase desde tu archivo (ajusta la ruta si es necesario)
-    ExpenseManager = require('./Public/script.js').ExpenseManager;
   });
 
   it('debe registrar un nuevo gasto', () => {
@@ -42,7 +50,7 @@ describe('ExpenseManager', () => {
       category: 'Alimentación',
       date: '2025-06-16',
       notes: 'Desayuno'
-    });
+    } as Expense);
     // Verifica que el gasto fue agregado
     expect(manager.expenses.length).toBeGreaterThan(0);
     expect(manager.expenses[0].description).toBe('Café');
