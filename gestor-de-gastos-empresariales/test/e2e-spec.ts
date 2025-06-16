@@ -2,8 +2,7 @@
  * @jest-environment jsdom
  */
 import { JSDOM } from 'jsdom';
-// Ajusta la ruta y asegúrate de que script.js exporte ExpenseManager como ES Module
-import { ExpenseManager } from '../Public/script.js';
+import { ExpenseManager, Expense } from '../Public/script.js';
 
 // Simula el HTML mínimo necesario
 const html = `
@@ -23,22 +22,11 @@ const html = `
   <select id="monthFilter"></select>
 `;
 
-interface Expense {
-  description: string;
-  amount: number;
-  category: string;
-  date: string;
-  notes: string;
-}
-
 describe('ExpenseManager', () => {
   beforeAll(() => {
-    // Simula el DOM
     const dom = new JSDOM(html, { url: "http://localhost" });
-    // @ts-ignore
-    global.document = dom.window.document;
-    // @ts-ignore
-    global.window = dom.window;
+    (global as any).document = dom.window.document;
+    (global as any).window = dom.window;
   });
 
   it('debe registrar un nuevo gasto', () => {
