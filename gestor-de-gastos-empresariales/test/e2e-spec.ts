@@ -25,8 +25,8 @@ const html = `
 describe('ExpenseManager', () => {
   beforeAll(() => {
     const dom = new JSDOM(html, { url: "http://localhost" });
-    (global as any).document = dom.window.document;
-    (global as any).window = dom.window;
+    (globalThis as any).document = dom.window.document;
+    (globalThis as any).window = dom.window;
   });
 
   it('debe registrar un nuevo gasto', () => {
