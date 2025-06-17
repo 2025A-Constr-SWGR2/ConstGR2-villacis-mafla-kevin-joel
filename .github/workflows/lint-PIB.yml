@@ -18,3 +18,4 @@ jobs:
       - name: Run linter
         working-directory: ./gestor-de-gastos-empresariales
         run: npm run lint
+        
