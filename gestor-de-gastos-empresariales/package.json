@@ -1,11 +1,12 @@
 {
-  "name": "gestor-de-gastos-empresariales",
+  "name": "calculadora",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "desplegar-directorios": "dir",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
