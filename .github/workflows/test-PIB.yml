@@ -17,4 +17,4 @@ jobs:
         run: npm install
       - name: Run tests
         working-directory: ./gestor-de-gastos-empresariales
-        run: npm test:e2e
+        run: npm run test:e2e
