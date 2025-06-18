@@ -31,3 +31,8 @@ Desarrollar un aplicativo pequeño aplicando **principios de Clean Code en JavaS
 1. Instala el servidor local si no lo tienes:
    ```bash
    npm install -g http-server
+
+2. Ejecuta el servidor:
+   ```bash
+   http-server -c 10 <!-- -c 10 significa que el cahe durara unicamente 10 segundos -->
+
