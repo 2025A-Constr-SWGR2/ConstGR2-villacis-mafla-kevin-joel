@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: . # contexto del dockerfile, donde se encuentra el Dockerfile
+      dockerfile: Dockerfile # Refers to your custom Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db # espera que el servicio db este listo
+    environment:
+      DB_HOST: ADR_COMPOSE_HOST # Variable de entorno para la aplicacion
+      DB_USER: ADR_COMPOSE_USER
+      DB_PASSWORD: ADR_COMPOSE_PASS
+      DB_NAME: ADR_COMPOSE_DB
+  db:
+    image: postgres:latest
+    container_name: my_postgres_db
+    environment:
+      POSTGRES_USER: ADR_COMPOSE_USER
+      POSTGRES_PASSWORD: ADR_COMPOSE_PASS
+      POSTGRES_DB: ADR_COMPOSE_PASS
+    ports:
+      - "5432:5432" # Expone el puerto de postgres donde se levanta la base de datos
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persistent data storage
+      #un volumen es infromacion que se mantiene percistente en el tiempo, aunque se elimine el contenedor
+volumes:
+  postgres_data:
+
